@@ -1,0 +1,24 @@
+.icons-res-con{
+    display: flex;
+    justify-content: center;
+}
+.store{
+    /* overflow-y: scroll; */
+    overflow-x: hidden;
+}
+.menu div{
+    color: gray;
+}
+.menu div:hover{
+    color: rgb(162, 160, 160);
+}
+.product-title{
+    bottom: 0cm;
+    }
+.pr{
+    position: relative;
+}
+/* .product-display {
+    background: radial-gradient(circle, rgba(0,0,0,0.5777661406359419) 0%, rgba(1,1,1,0.03714989413734249) 100%);
+
+} */

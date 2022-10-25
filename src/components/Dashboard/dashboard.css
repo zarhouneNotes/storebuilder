@@ -1,0 +1,86 @@
+.dashboard{
+    display: flex;
+    height: 100vh;
+}
+.sidebar{
+    width: 20vw;
+    background-color: #242D52;
+    overflow-x: hidden;
+}
+.sidebar-link{
+    cursor: pointer;
+    border-bottom:  solid 1px;
+    border-color: #364274;
+    transition: 0.25s;
+}
+.sidebar-link:hover{
+    transform: translateX(5px);
+    transition: 0.25s;
+}
+.settings-container{
+    width: 80vw;
+}
+.settings{
+    margin:0.5cm 2cm;
+}
+.option{
+    cursor: pointer;
+    padding: 10px 5px;
+    width: 4.4cm;
+    transition: 0.25s;
+}
+.settings .input{
+    width: 30vw;
+}
+.quickview{
+    width: 78vw;
+}
+.cats{
+    width: 90vw;
+    flex-wrap: wrap;
+    
+}
+.mt-4{
+margin-top: 0.4cm;
+}
+@media only screen and (max-device-width:   700px){
+    .settings{
+        margin: 2cm 10px;
+    }
+    .settings .input{
+        width: 100vw;
+    }
+    .dashboard{
+        flex-direction: column-reverse;
+        justify-content: space-between;
+
+    }
+    .sidebar{
+        width: 100vw;
+        background-color: white;
+    }
+    .mobile-dash{
+        background-color: #242D52;
+        height: fit-content;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .sidebar-link{
+        padding: 0px 20px;
+    }
+    .sidebar-link:hover{
+        transform: translateX(0px);
+        transition: 0.25s;
+    }
+    .py-3{
+        padding: 10px;
+    }
+    .mobile-console{
+        z-index:9 ;
+        top: 0%;
+        width: 100vw;
+        padding: 10px ;
+    }
+   
+}

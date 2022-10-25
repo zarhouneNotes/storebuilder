@@ -1,0 +1,101 @@
+.products , .add-product{
+    width: 80vw ;
+}
+
+.products-container{
+    margin-top: 2cm;
+    width: 70%;
+}
+.add-product-form-container{
+  margin-top: 0.5cm;
+  width: 70%;
+}
+.products-list {
+    height: 70vh;
+    overflow: hidden;
+   }
+
+.add-product{
+    overflow-y: scroll;
+}
+
+ .cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 200px; 
+    height: 1.2em; 
+    white-space: nowrap;
+  }
+  .upload-plus{
+    width: 2.5cm;
+    height: 2.5cm;
+    position: relative;
+    transition: 0.2s;
+    font-size: 32px;
+
+  }
+  .upload-plus:hover{
+   transition: 0.1s;
+   padding: 1px;
+   border: solid 1px rgb(3, 3, 59);
+  }
+  .upload-btn{
+   left: 0%;
+   width: 2.5cm;
+   height: 2.5cm;
+   opacity: 0;
+  }
+  .my-border{
+        border: 1px solid #FF735C
+  }
+  .input:focus{
+    border: 1px solid #FF735C
+  }
+  .variant-span{
+    background-color: rgb(236, 236, 236);
+
+  }
+ .delete-variant{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+ }
+  .variant-color{
+    width: 25px;
+    height: 20px;
+  }
+
+  .colors , .other-varians{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .add-produuct-load{
+    background-color: rgba(16, 16, 50, 0.349);
+  }
+@media only screen and (max-device-width : 700px) {
+  
+    .cut-text{
+        width: 100px;
+    }
+    .add-product-form-container{
+      margin-top: 2cm;
+      width: 95%;
+    }
+    .products , .add-product{
+        width: 100vw ;
+    }
+    .filters{
+        margin: 0px 10px;
+    }
+   .products-container{
+    width: 100%;
+   }
+   .products-list{
+    margin: 0px 10px;
+   }
+  
+   .input {
+    height: 1cm;
+    width: 100%;
+   }
+}

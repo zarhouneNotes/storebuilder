@@ -1,0 +1,36 @@
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+
+}
+
+.input{
+    border-radius: 0%;
+}
+.input:focus{
+    outline: none;
+    box-shadow: none;
+    transition: 0.25s;
+    border-color: #385A64 ;
+}
+.form{
+    width: 25vw;
+    text-align: center;
+}
+.loader{
+    height: 20px;
+    font-size: 10PX;
+}
+
+@media only screen and (max-device-width:   700px){
+    .form{
+        width: 80vw;
+    }
+    .input{
+        border-radius: 0%;
+        height: 1.2cm;
+    }
+}

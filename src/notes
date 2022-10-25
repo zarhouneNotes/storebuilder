@@ -1,0 +1,10 @@
+// const coverRef  = ref(storage , "cover"+uuid())
+
+   
+        
+        // uploadBytes(coverRef , cover)
+        // .then(()=>{
+        //     getDownloadURL(coverRef)
+        //     .then((res)=> {
+        //             ///url
+        //     })
