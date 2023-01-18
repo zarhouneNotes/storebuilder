@@ -89,6 +89,7 @@ function AddProduct() {
                     setColors([])
                     setVariants([])
                     setLoad(false)
+                    setCats([])
                    })
                 
            
@@ -188,7 +189,7 @@ function AddProduct() {
                 <Form.Control 
                 required
                     onChange={(e)=>{setTitle(e.target.value)}}
-                    value={title}   type=''placeholder='name your product' className='input w-5'/>
+                    value={title}   type=''placeholder='name your product' className='input '/>
                
                 <Form.Label className='mt- mt-2 darkblue'>Description</Form.Label>
                 <Form.Control 
@@ -214,11 +215,11 @@ function AddProduct() {
                                 })}
                                
                 </Form.Select>
-                <Button className='my-btn btn' onClick={AddCat} >ADD</Button>
+                <Button className='my-btn btn' onClick={AddCat} >Add</Button>
             
                 
                 </div>
-                <div className="d-flex mt-2 gap-2">
+                <div className="d-flex colors mt-2 gap-2">
                     {cats?.map((item)=>{
                         return <Category value={item} deleteHandel={()=>{setCats(deleteItem(cats , item))}} />
                     })}

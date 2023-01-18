@@ -3,14 +3,19 @@
     justify-content: center;
 }
 .store{
-    /* overflow-y: scroll; */
+   
+  font-family: 'Josefin Sans', sans-serif;
     overflow-x: hidden;
 }
 .menu div{
     color: gray;
 }
+
 .menu div:hover{
     color: rgb(162, 160, 160);
+}
+.menu{
+  gap: 30px;
 }
 .product-title{
     bottom: 0cm;
@@ -18,7 +23,114 @@
 .pr{
     position: relative;
 }
-/* .product-display {
-    background: radial-gradient(circle, rgba(0,0,0,0.5777661406359419) 0%, rgba(1,1,1,0.03714989413734249) 100%);
+.add-to-cart-btn {
+ top: 0px;
+ right: 0%;
+ background-color: transparent;
+ /* display: none; */
+}
+.cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    height: fit-content;
+    width: 180px; 
+    white-space: nowrap;
+  }
+  .add-to-cart-btn:hover{
+    
+    background-color: transparent;
+    transition: 0.2ms;
+    transform: scale(1.1);
+  }
 
-} */
+  .product-card:hover  {
+    transition: 0.2s;
+    transform: scale(1.08);
+    -webkit-box-shadow: -1px 1px 48px -16px #000000; 
+    box-shadow: -1px 1px 48px -16px #000000;
+  }
+  .product-card {
+    transition: 0.4s;
+  }
+  .product-card{
+    overflow: hidden;
+  }
+
+  .variant-tmb{
+    backdrop-filter: opacity(20%);;
+  }
+
+
+
+
+
+  
+
+  .close-icon{
+    display: none;
+  }
+
+  .cart-badge{
+    position: absolute;
+    /* background-color: rgb(255, 0, 0); */
+    font-size: small;
+    right:-10px ;
+    top: -10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    color:wheat ;
+  }
+
+  .total{
+    display: block;
+  }
+
+  @media (max-width: 460px) { 
+    .product-card:hover  {
+      transition: 0.2s;
+      transform: scale(1);
+      -webkit-box-shadow: -1px 1px 48px -16px #000000; 
+      box-shadow: -1px 1px 48px -16px #000000;
+    }
+    .total{
+      display: none;
+    }
+    .close-icon{
+      display: flex;
+      justify-content: end;
+      
+    }
+    .text-center-mob{
+      text-align: center;
+    }
+    .menu{
+      gap: 0px;
+      top: 0%;
+      background-color: rgb(252, 252, 252);
+      flex-direction: column;
+      position: fixed;
+      right: 0%;
+      width: 200px;
+      z-index: 11;
+      height: 100vh;
+      transform: translateX(210px);
+      transition: 0.22s;
+      color: #0c0c0c;
+  
+    }
+    .menu-mobile-slide{
+      transform: translateX(0);
+      transition: 0.22s;
+    }
+    .menu div { 
+      /* background-color: aquamarine; */
+      width: 100%;
+      padding-top: 4ex  ;
+      text-align: center ;
+  
+    }
+
+   }

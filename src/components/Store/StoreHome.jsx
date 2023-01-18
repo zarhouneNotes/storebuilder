@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { db } from '../../Firebase'
 import CollRow from './CollRow'
 
-function StoreHome({store}) {
+function StoreHome({store , mobileMode}) {
     const params = useParams()
     const [products , setProducts] = useState([])
     
@@ -28,9 +28,9 @@ function StoreHome({store}) {
 
   return (
    
-       <div className='' >
+       <div className=' bg-dangr mx-auto' >
         {store?.categories.map((cat)=>{
-            return <CollRow sl3a={products} name={cat} /> 
+            return <CollRow sl3a={products} name={cat} mobileMode={mobileMode}/> 
         })}
         
        </div>

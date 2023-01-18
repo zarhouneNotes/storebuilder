@@ -35,6 +35,10 @@
 .quickview{
     width: 78vw;
 }
+.quickview-mobile{
+    width: 460px ;
+    margin: 0pc auto;
+}
 .cats{
     width: 90vw;
     flex-wrap: wrap;
@@ -43,12 +47,20 @@
 .mt-4{
 margin-top: 0.4cm;
 }
-@media only screen and (max-device-width:   700px){
+@media only screen and (max-device-width:   460px){
+    .settings-container{
+        width: 100vw;
+    }
     .settings{
-        margin: 2cm 10px;
+        margin: 0cm 0px;
+        margin-top: 2cm;
+        padding:10px;
+        padding-bottom: 2cm;
+        max-height: 85vh;
+        overflow-y: scroll;
     }
     .settings .input{
-        width: 100vw;
+        width: 100%;
     }
     .dashboard{
         flex-direction: column-reverse;
@@ -65,9 +77,14 @@ margin-top: 0.4cm;
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        position: fixed;
+        bottom: 00000px;
+        width: 100vw;
+        z-index: 99;
+        height: 1.5cm;
     }
     .sidebar-link{
-        padding: 0px 20px;
+        padding: 0px 0px;
     }
     .sidebar-link:hover{
         transform: translateX(0px);
@@ -81,6 +98,7 @@ margin-top: 0.4cm;
         top: 0%;
         width: 100vw;
         padding: 10px ;
+        height: 1.5cm;
     }
    
 }

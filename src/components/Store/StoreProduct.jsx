@@ -1,13 +1,28 @@
+import { Button } from 'react-bootstrap'
+import {BsCart3} from 'react-icons/bs'
 import React from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 function StoreProduct({product}) {
+  const params = useParams()
   return (
-    <div className="m-2 pr  text-center text-light ">
-          <img src={product?.images[0]} width='100%' alt="" srcset="" height="100%" />
-          <div className="fs-5 product-display py-3 w-100 product-title position-absolute">
-           {product?.title} 
-          </div>  
-    </div>
+    <Link to={`/storeId=${params?.id}/productId=${product?.product_id}`} className='link' >
+      <div className="m-2 pr  product-card ">
+            <img className=' bg-light' src={product?.images[0]} width='100%' alt="" srcset="" style={{aspectRatio : '1/1' , objectFit:'contain'}} />
+            <div className=" horiz-centerd p-2 bg-ino w-100 product-title ">
+              <div className='text-secondary cut-text  '>
+                {product?.title} 
+              </div>
+              <div className='  darkblue' >
+                {product?.price}$
+              </div>
+            </div>  
+            {/* <Button  className='btn border-0 add-to-cart-btn position-absolute ' size='sm'>
+              <BsCart3 fontSize="21px" className='text-secondary' />
+            </Button>
+            */}
+      </div>
+    </Link>
   )
 }
 

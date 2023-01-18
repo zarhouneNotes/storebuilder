@@ -8,8 +8,8 @@ import Loader from '../AuthComponents/Loader'
 import Category from './Category'
 
 
-export default function Settings() {
-  const currentStore = useAuth()
+export default function Settings( {setStoreName}) {
+  const currentStore = useAuth() 
   const [option , setOption] = useState('')
   const [store , setStore] = useState('')
   const [paypal , setPaypal] = useState('')
@@ -21,15 +21,17 @@ export default function Settings() {
   const [load , setLoad] = useState(false)
   useEffect(()=>{
     let fetch  = true
-    if (fetch && currentStore) {
+    if (currentStore && fetch) {
       onSnapshot(doc(db , "stores" , currentStore?.uid),(res)=>{
-        const storeData = res.data()
+        const storeData = res?.data()
+       
         setOption(storeData?.store_type)
-        setPaypal(storeData.email)
-        setStore(storeData.store_name)
+        setPaypal(storeData?.email)
+        setStore(storeData?.store_name)
         setAbout(storeData?.about)
         setSupport(storeData?.support)
-        setArr(storeData?.categories)
+        storeData?.categories ? setArr(storeData?.categories) : setArr([])
+       
 
       })
     }
@@ -82,7 +84,7 @@ export default function Settings() {
               required 
               onChange={(e)=>{setStore(e.target.value)}}
               value={store}
-              placeholder='store name..' className='input w-5' />
+              placeholder='store name..' className='input bginfo  w-5' />
             </div>
             <div className='mb-2'>
               <Form.Label>Catagories of your products</Form.Label>

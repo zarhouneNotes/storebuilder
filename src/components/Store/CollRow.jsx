@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {BsArrowRight} from 'react-icons/bs'
 import StoreProduct from './StoreProduct'
+import {useMediaQuery } from 'usehooks-ts'
+import { useParams } from 'react-router-dom'
 
-function CollRow({name , sl3a}) {
+
+function CollRow({name , sl3a , mobileMode}) {
+    
+    // useEffect(()=>{
+    //     console.log(devMode)
+    // },[])
     
     const show =()=> {
         var v = 0
@@ -14,10 +21,9 @@ function CollRow({name , sl3a}) {
             })
            return v>0
             }
-    console.log(show())
   return (
-    <div className='coll-head  col-10 mx-auto ' >
-       {show()&&  <div className='horiz-centerd vertcally-centerd mt-4 mb-2' >
+    <div className={`coll-head  mx-auto  ${  'col-md-11 col-lg-10 col-sm-11 '}   ` } >
+       {show()&&  <div className='horiz-centerd vertcally-centerd mt-4 mb-2 mx-2' >
             <div className="fs-3">{name}</div>
             <div>
                 
@@ -28,8 +34,8 @@ function CollRow({name , sl3a}) {
         <div className='d-flex flex-wrap'>
             {sl3a?.map((pro)=> {
                 return pro?.categories?.includes(name) ? (
-                 <div className="item col-lg-3 col-md-4 col-sm-12 ">
-                    <StoreProduct  product={pro}/>
+                 <div className={`item  col-6 col-lg-3`}>
+                    <StoreProduct   product={pro}/>
                  </div>
             ) : <></>
             })}
