@@ -1,5 +1,5 @@
 import { colors } from '@mui/material'
-import { collection, doc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
+import { collection, doc, getDocs, onSnapshot, query, updateDoc, where } from 'firebase/firestore'
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -94,23 +94,30 @@ function Collection() {
         
          <Form className='d-flex m-2 gap-2 ' >
             <Form.Control
-            size='lg'
+            size=''
             onChange={(e)=>{
              setSearchText(e.target.value)
             }}
              placeholder='Name a product..' className='input my-input'  />
             
-            <Button size='lg ' className='bg-light text-dark border border' onClick={()=>{setShow(true) ; setProducts(OriginalList)}} >
+            <Button size=' ' className='bg-light text-dark border border' onClick={()=>{setShow(true) ; setProducts(OriginalList)}} >
               <BsFilter />
             </Button>
-            <Button size='lg ' className='bg-darkblue border-0' onClick={filterProducts}>Apply</Button>
+            <Button size=' ' className='bg-darkblue border-0' onClick={filterProducts}>Apply</Button>
          </Form>
 
         <div className=" d-flex flex-wrap">
           {products?.map((product)=>{
+            // updateDoc(doc(db, 'products' , product?.product_id),{
+            //   main_tag : params?.coll
+            // })
+            // .then(()=>{
+            //   console.log('products updated succesfuly')
+            // })
+            // .catch((e)=>{console.log('updating main tags went wrong')})
               return ( 
                 // checkThis(product ) && 
-                   <div  className='col-6 col-lg-3 col-md-4 ' >
+                   <div onClick={()=>{console.log(product?.main_tag)}}  className='col-6 col-lg-3 col-md-4 ' key={product?.product_id}>
                         <StoreProduct  product={product} />
                     </div>)
           })}

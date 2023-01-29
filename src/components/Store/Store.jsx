@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import './store.css'
 import StoreNav from './StoreNav'
 import {db} from '../../Firebase'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { doc, getDoc, onSnapshot } from 'firebase/firestore'
 import { Route, Routes, useParams } from 'react-router-dom'
 import Collection from './Collection'
 import StoreHome from './StoreHome'
 import Cart from './Cart'
 import ProductPage from './ProductPage'
+import Checkout from './Checkout'
 
 function Store({mobileMode}) {
   const params = useParams()
@@ -17,16 +18,15 @@ function Store({mobileMode}) {
 
   useEffect(()=>{
     let fetch = true
-    if(fetch && params){
+    if( params){
       setLoad(true)
-      onSnapshot(doc(db , 'stores' , params?.id),(res)=>{
+      getDoc(doc(db , 'stores' , params?.id))
+      .then((res)=>{
         setStoreInfo(res?.data())
         setLoad(false)
-      })
+      }).catch((e)=>{console.log(e)})
     }
-    return()=>{
-      fetch = false
-    }
+    // console.log(params)
   },[])
   useEffect(()=>{
     const addedProducts = JSON.parse(localStorage.getItem('cart'))
@@ -41,6 +41,7 @@ function Store({mobileMode}) {
         <Route path='/'  element={<StoreHome store={storeInfo}   />} />
         <Route path='/col=:col'  element={<Collection  />}  />
         <Route path='/cart' element={<Cart setBadge={setBadge} />}  />
+        <Route path='/checkout' element={<Checkout/>}  />
         <Route path='/cat=:coll' element={<Collection />}  />
         <Route path='/productId=:id' element={ <ProductPage  setBadge={setBadge} /> }  />
       </Routes>

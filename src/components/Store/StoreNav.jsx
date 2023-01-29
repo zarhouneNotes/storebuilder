@@ -4,18 +4,38 @@ import {HiOutlineMenu} from 'react-icons/hi'
 import {useMediaQuery} from 'usehooks-ts'
 import {VscClose} from 'react-icons/vsc'
 import { Link, NavLink, useParams } from 'react-router-dom'
+import { doc, getDoc, onSnapshot } from 'firebase/firestore'
+import { db, useAuth } from '../../Firebase'
 
 function StoreNav({store , load , badge}) {
     
   const isMobile = useMediaQuery('max-width("460px")')
   const [showMenu , setShowMenu ]  = useState(false)
   const params = useParams()
+  // const [store , setStore] = useState('')
+  // const [load  , setLoad] = useState(false)
+  const cu = useAuth()
+
+
+  // useEffect(()=>{
+  //   let fetch = true
+  //   if( fetch && params){
+  //     setLoad(true)
+  //     getDoc(doc(db , 'stores' ,params?.id))
+  //     .then((res)=>{
+  //       setStore(res?.data())
+  //       setLoad(false)
+  //     }).catch((e)=>{console.log(e)})
+  //   }
+  //   // console.log(params)
+    
+  // },[cu])
   
     
  
     
   return load ?
-  <div className="py-4 mx-5 text-light text-center bg-light">Loading..</div>
+  <div className="py-4 col-12 col-lg-12  text-light text-center bg-light">Loading..</div>
    : (
     <div className={` vertcally-centerd horiz-centerd py-4 border-bottom border-secon  position-relative   ol-11 px-2 ' : 'col-lg-10 mx-auto col-md-11 col-lg-11' }`}>
         <div className=" fs-3">

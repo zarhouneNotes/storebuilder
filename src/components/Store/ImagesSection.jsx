@@ -10,7 +10,7 @@ export default function ImagesSection ({product }){
    
     const params = useParams()
     return (
-          <div className={`col-sm-12 col-lg-5  bg-liht`}>
+          <div className={`col-sm-12 col-lg-5  bg-liht border`}>
                 <img src={mainImg} alt="" srcset=""  
                 width={ "100%"} 
                 />

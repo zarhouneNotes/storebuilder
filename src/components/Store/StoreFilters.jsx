@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function StoreFilters ({setColor,setShow , setSize , setLessPrice , setMaxPrice , color , size , minPrice , maxPrice}){
   const colors  = ["Blue" , 'Green' , "White" , "Black"  ,'Brown' , "Grey"]
   const Shoes_sizes = ['38' , '39' ,'40','41','42','43','44','45']
   const tops_sizes = ["S" ,"M" , 'L' , "XL" , "XXL" , "3XL"]
-
+  const isMobile = useMediaQuery('max-width("460px")')
 
 
 

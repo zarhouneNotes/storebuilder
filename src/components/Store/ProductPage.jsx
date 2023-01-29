@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom'
 import ImagesSection from './ImagesSection'
 import {useMediaQuery} from 'usehooks-ts'
 import ProductDesc from './ProductDesc'
-import { collection, doc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, onSnapshot, query, where } from 'firebase/firestore'
 import { db } from "../../Firebase";
 import StoreProduct from './StoreProduct'
+import LoadingProducts from './LoadingProducts'
 
 export default function ProductPage ({setBadge}){
     const params = useParams()
@@ -18,36 +19,28 @@ export default function ProductPage ({setBadge}){
         if (fetch) {
             
             setLoad(true)
-            onSnapshot(doc(db , 'products' , params.id) , (res)=>{
+            getDoc(doc(db , 'products' , params.id) )
+            .then((res)=>{
                 setProduct(res?.data())
-                setLoad(false)
-
-            })
-        }
-        return ()=>{fetch = false}
-    },[])
-
-
-    useEffect(()=>{
-        let fetch = true 
-        if (fetch && product) {
-            
-            setLoad(true)
-            const arr = []
-            onSnapshot(query(collection(db , 'products') , where('categories' , 'array-contains' , product?.categories[0])) , (res)=>{
-                res.docs.forEach((doc)=>{
-                    arr.push(doc.data())
+                const arr = []
+                getDocs(query(collection(db , 'products') , where('categories' , 'array-contains' , res.data().main_tag))).then( (rels)=>{
+                    rels.docs.forEach((doc)=>{
+                        arr.push(doc.data())
+                    })
+                    
+                    setRelatedProducts(arr)
+                    // console.log(arr)
+                    setLoad(false)
                 })
                 
-                
-                setRelatedProducts(arr)
-                console.log(arr)
-                setLoad(false)
-                //   console.log(product)
+
             })
         }
-        return ()=>{fetch = false}
-    },[])
+        return ()=>{fetch = false} 
+    },[params?.id])
+
+
+    
 
 
     const [addedroducts , setAddedProducts] = useState([])
@@ -60,6 +53,9 @@ export default function ProductPage ({setBadge}){
         }
         return ()=>{fetch = false}
     },[])
+
+
+   
   
 
     function AddToCart (obj){
@@ -72,28 +68,24 @@ export default function ProductPage ({setBadge}){
 
     
 
-    function kickCurrentProduct () {
-        const newList  = relatedProducts?.filter((item)=>{
-            return item != product
-        })
-        return newList
-    }
 
-
-    return (
+    return load  ? <LoadingProducts /> : (
        <div  className="bg-inf col9 mx-auto ">
-       { load ? 'loading..' :  <div className="col-lg-9 col-sm-12 bg-ino mt-2 mx-auto around py-1">
+        
+       <div className="col-lg-9 col-sm-12 bg-ino mt-2 mx-auto around py-1">
           <ImagesSection product={product} />
           <ProductDesc  AddToCart={AddToCart} product={product}/>
 
-        </div>}
+        </div>
         <div className="bg-dager  col-lg-10 col-sm-12 mx-auto mt-5">
             <h3>Related Products</h3>
             <div className="row">
                {!load && relatedProducts?.map((relproduct)=>{
-                return(<div key={relproduct.product_id} className="col-lg-3 col-sm-4">
+                return( relproduct.product_id !== product.product_id &&
+                        <div   key={relproduct.product_id} className="col-6 col-lg-3 ">
                             <StoreProduct product={relproduct} />
-                        </div>)
+                        </div>
+                        )
                })}
             </div>
         </div>

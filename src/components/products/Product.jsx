@@ -47,6 +47,7 @@ function Product({product , fetch}) {
             as={ButtonGroup}
             variant='dark'
             size="sm"
+            style={{scale  : '0.7'}}
             
           >
             <Dropdown.Item >

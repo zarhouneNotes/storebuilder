@@ -2,9 +2,11 @@ import React from 'react'
 import { Form } from 'react-bootstrap'
 import {FiSearch , FiPlus} from 'react-icons/fi'
 import { Link } from 'react-router-dom'
+import { useMediaQuery } from 'usehooks-ts'
 import './products.css'
 
 function Filters() {
+  const isMobile = useMediaQuery("max-width('460px')")
   return (
     <div className='filters horiz-centerd '>
         <div className='d-flex w-100'>

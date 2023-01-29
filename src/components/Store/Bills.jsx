@@ -1,7 +1,10 @@
 import { Button } from "react-bootstrap";
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 export default function Bills ({products}){
+    const params = useParams()
+    // console.log(params)
     function calculTotalCharge (){
         var bills = 0
         products?.map((cartItem)=>{
@@ -36,7 +39,9 @@ export default function Bills ({products}){
                 <input type="checkbox"  /> 
                 <label htmlFor=""><small>Accept terms and conditions</small></label>
             </div>
-            <Button className="w-100 mt-3 text-dark bg-light bg-darkblue  border-0"  >Checkout</Button>
+            <Link to={`/storeId=${params?.id}/checkout`}>
+              <Button className="w-100 mt-3 text-dark bg-light bg-darkblue  border-0"  >Checkout</Button>
+            </Link>
         </div>
     </div>
     )

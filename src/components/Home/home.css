@@ -58,6 +58,7 @@
 .around{
     display: flex;
     justify-content: space-around;
+    align-items: flex-start;
 }
 .btn{
     border-radius: 0%;

@@ -2,6 +2,10 @@
     display: flex;
     justify-content: center;
 }
+
+.bg-lightt{
+  background-color: rgb(224, 227, 228);
+}
 .store{
    
   font-family: 'Josefin Sans', sans-serif;
@@ -88,7 +92,29 @@
     display: block;
   }
 
+
+  .adress-form{
+    width:500px ;
+    padding: 0.5cm 1cm ;
+    border: 1px solid rgb(189, 189, 189);
+  }
+  .bg-paypal{
+    background-color: #013088;
+  }
+  .or{
+    align-items: center;
+  }
+.line{
+  height: 1px;
+}
   @media (max-width: 460px) { 
+    .adress-form{
+      width:100vw ;
+      padding: 20px ;
+      margin: 1px;
+      
+    }
+    
     .product-card:hover  {
       transition: 0.2s;
       transform: scale(1);

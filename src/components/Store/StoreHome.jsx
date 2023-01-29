@@ -11,15 +11,18 @@ function StoreHome({store , mobileMode}) {
     
     useEffect(()=>{
         let fetch = true
-        const arr = []
-        if(params && fetch){
-            onSnapshot(query(collection(db , 'products') , where('store_id' , '==' , params.id)), (res)=>{
+        
+        // if(fetch){
+            const arr = []
+            onSnapshot(query(collection(db , 'products') , where('store_id' , '==' , params?.id)), (res)=>{
                 res.docs.forEach((doc)=>{
                     arr.push(doc.data())
+                    
                 })
+                console.log(arr)
                 setProducts(arr)
             })
-        }
+        // } 
         return ()=>{
             fetch = false
         }
