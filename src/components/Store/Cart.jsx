@@ -26,7 +26,7 @@ function Cart({setBadge}) {
             // console.log(obj)
             const arr = addedProducts
             let newList = arr.filter((product)=>{
-                return product?.order_id != obj?.order_id
+                return product?.item_id != obj?.item_id
             })
             setBadge(newList.length)
             setAddedProducts(newList)
@@ -41,13 +41,13 @@ function Cart({setBadge}) {
     return (
     <div className=''>
         <CartPageHeader />
-        <div className="cart-page-body col-lg-10 col-sm-12 py-2 around mx-auto">
+        <div className="cart-page-body bg-dangr col-lg-10 col-sm-12 py-2 around mx-auto">
             
-            <div className="col-lg-8 col-sm-12 py- bg-ifo">
+            <div className="col-12 col-lg-8 col-sm-12 py- bg-ino">
                 <hr />
                 <ShoppingList products={addedProducts} deleteCartItem={deleteCartItem} changeCartItem={changeCartItem} />
             </div>
-            <div className="co4 col-lg-4 col-sm-12 bg-priary">
+            <div className="col-12 col-lg-4 col-sm-12 bg-priary">
                 <Bills products={addedProducts}/>
             </div>
         </div>

@@ -12,27 +12,7 @@ function StoreNav({store , load , badge}) {
   const isMobile = useMediaQuery('max-width("460px")')
   const [showMenu , setShowMenu ]  = useState(false)
   const params = useParams()
-  // const [store , setStore] = useState('')
-  // const [load  , setLoad] = useState(false)
-  const cu = useAuth()
 
-
-  // useEffect(()=>{
-  //   let fetch = true
-  //   if( fetch && params){
-  //     setLoad(true)
-  //     getDoc(doc(db , 'stores' ,params?.id))
-  //     .then((res)=>{
-  //       setStore(res?.data())
-  //       setLoad(false)
-  //     }).catch((e)=>{console.log(e)})
-  //   }
-  //   // console.log(params)
-    
-  // },[cu])
-  
-    
- 
     
   return load ?
   <div className="py-4 col-12 col-lg-12  text-light text-center bg-light">Loading..</div>

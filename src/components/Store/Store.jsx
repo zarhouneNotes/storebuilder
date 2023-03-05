@@ -9,6 +9,7 @@ import StoreHome from './StoreHome'
 import Cart from './Cart'
 import ProductPage from './ProductPage'
 import Checkout from './Checkout'
+import Thanks from './Thanks'
 
 function Store({mobileMode}) {
   const params = useParams()
@@ -43,7 +44,9 @@ function Store({mobileMode}) {
         <Route path='/cart' element={<Cart setBadge={setBadge} />}  />
         <Route path='/checkout' element={<Checkout/>}  />
         <Route path='/cat=:coll' element={<Collection />}  />
+        <Route path='/thanks' element={ <Thanks /> }  />
         <Route path='/productId=:id' element={ <ProductPage  setBadge={setBadge} /> }  />
+
       </Routes>
       
      </div>

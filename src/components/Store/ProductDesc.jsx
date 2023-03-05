@@ -15,7 +15,7 @@ function ProductDesc ({product , AddToCart}){
     const [color , setColor]  = useState()
     const [variant , setVariant] = useState()
     const visitedProduct = {
-        order_id : uuidv4() ,
+        item_id : uuidv4() ,
         product : product ,
         choices : {
             color : color ,

@@ -20,7 +20,8 @@
    }
 
 .add-product{
-    /* overflow-y: scroll!; */
+  max-height: 98vh;
+    overflow-y: scroll;
 }
 
  .cut-text { 

@@ -14,6 +14,7 @@ import Category from '../Dashboard/Category'
 
 function AddProduct() {
     const currentStore = useAuth()
+    const [mainTag , setMainTag] = useState('')
     const [filesToUpload , setFilesToUpload] = useState([])
     const [selectValue, setSelectValue] = useState('')
     const [variant, setVariant] = useState('')
@@ -59,7 +60,8 @@ function AddProduct() {
                 colors : colors ,
                 variants : variants , 
                 instock : true , 
-                categories : cats
+                categories : cats ,
+                main_tag : mainTag
 
             })
             .then(()=>{
@@ -196,29 +198,57 @@ function AddProduct() {
                 required
                     onChange={(e)=>{setDesc(e.target.value)}}
                     value={desc}  type=''placeholder='describe your product in few words' className='input w-5'/>
-                <Form.Label className='mt- mt-2 darkblue'>Category </Form.Label>
-                <div className="d-flex">
-                <Form.Select 
-                            
-                                value={cat}
-                                onChange={(e)=>{
-                                    setCat(e.target.value)
-                                }}
-                                size='sm'
-                                className='input  w-100'
-                            
-                            >
-                                
-                                            <option value='' >Which categories your product goes in ?</option>
-                                {options?.map((op)=>{
-                                    return  <option value={op}  >{op}</option>
-                                })}
-                               
-                </Form.Select>
-                <Button className='my-btn btn' onClick={AddCat} >Add</Button>
+
+
+
+                <Form.Label className='mt- mt-2 darkblue'>Main category <small className="text-secondary">(Check settings to add your categories)</small></Form.Label>
+                <div className="">
+                    <Form 
+                    
+                    
+                    onChange={(e)=>{
+                            setMainTag(e.target.value)
+                    }}>
+                               {options?.map((op)=>{
+                                        return (<div>
+                                                    <input  type="radio" id={op} name="options" value={op}/>
+                                                    <label for={op}>{op}</label>
+                                                </div>)
+                                    })}
+                    
+                    </Form>
+                    
             
                 
                 </div>
+
+
+
+
+                <Form.Label className='mt- mt-2 darkblue'>Additionnal tags <small className="text-secondary">(Check settings to add your categories)</small></Form.Label>
+                <div className="d-flex">
+                    <Form.Select 
+                                
+                                    value={cat}
+                                    onChange={(e)=>{
+                                        setCat(e.target.value)
+                                    }}
+                                    size='sm'
+                                    className='input  w-100'
+                                
+                                >
+                                    
+                                                <option value='' >Which categories your product goes in ?</option>
+                                    {options?.map((op)=>{
+                                        return  <option value={op}  >{op}</option>
+                                    })}
+                                
+                    </Form.Select>
+                    <Button className='my-btn btn' onClick={AddCat} >Add</Button>
+            
+                
+                </div>
+
                 <div className="d-flex colors mt-2 gap-2">
                     {cats?.map((item)=>{
                         return <Category value={item} deleteHandel={()=>{setCats(deleteItem(cats , item))}} />

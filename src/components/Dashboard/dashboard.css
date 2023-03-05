@@ -47,13 +47,25 @@
 .mt-4{
 margin-top: 0.4cm;
 }
+
+.orders{
+    padding: 0.5cm;
+}
+
+.fs-petit{
+    font-size: 13px;
+}
 @media only screen and (max-device-width:   460px){
     .settings-container{
         width: 100vw;
     }
+    .orders{
+        padding: 0px;
+        margin-top: 1.5cm;
+    }
     .settings{
         margin: 0cm 0px;
-        margin-top: 2cm;
+        margin-top: 1.5cm;
         padding:10px;
         padding-bottom: 2cm;
         max-height: 85vh;

@@ -10,6 +10,7 @@ import AddProduct from '../products/AddProduct'
 import VEProduct from '../products/VEProduct'
 import QuickView from './QuickView'
 import { doc, onSnapshot } from 'firebase/firestore'
+import Orders from './Orders'
 
 function Dashboard() {
     const currentUser =useAuth()
@@ -40,7 +41,7 @@ function Dashboard() {
     <div className='dashboard'>
         <Sidebar storeName={storeName} />
         <Routes>
-          <Route path='/orders' element={<h1>ORDERS</h1>} />
+          <Route path='/orders' element={ <Orders />  } />
           <Route path='/products' element={<Products />} />
           <Route path='/settings' element={<Settings  />} />
           <Route  path='/add-product' element={<AddProduct  />} />

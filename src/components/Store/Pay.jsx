@@ -3,18 +3,23 @@ import { Button, Form } from "react-bootstrap";
 import {IoLogoPaypal} from 'react-icons/io5'
 import {FaMoneyCheck} from 'react-icons/fa'
 
-function Pay (){
+function Pay ({addadded , chashOnDeliveryHandel}){
 
-    const [addressFormFilled , setAddressFormFilled] = useState(true)
+    const [payNow , setPayNow] = useState(false)
+    const abeled = addadded && payNow
+
 
     return (
-        <Form className="borde adress-form">
+        <Form className="borde adress-form position-relative">
+            <div className="bg-secondary position-absolute h-100 w-100 vertcally-centerd jus-center" style={{top : '0px' , left : '0px' , zIndex :'9' , opacity : '0.2' , display : addadded && "none"}}>
+                {/* <div>you must fill all your informations</div> */}
+            </div>
             
             <div className="horiz-centerd">
                 <h4>Payment</h4>
                 <div 
-                onClick={()=>{setAddressFormFilled(!addressFormFilled)}}
-                className={`border vertcally-centerd py- px-3 ${addressFormFilled && ' border-primary text-primary'}`}
+                onClick={()=>{setPayNow(!payNow )}}
+                className={`border vertcally-centerd py- px-3 ${payNow&&addadded && ' border-primary text-primary'}`}
                 >
                     <div className="vertcally-centerd gap-1">
                         <div >pay now </div>
@@ -26,7 +31,7 @@ function Pay (){
                 <Form.Label>Email*</Form.Label>
                 
                 <Form.Control 
-                 disabled={!addressFormFilled}
+                 disabled={!payNow}
                 required
                 // value={fullName} 
                 // onChange={(e)=>{setFullName(e.target.value)}}
@@ -36,7 +41,7 @@ function Pay (){
                 <Form.Label>Password*</Form.Label>
                 
                 <Form.Control 
-                 disabled={!addressFormFilled}
+                 disabled={!payNow}
                 required
                 // value={fullName} 
                 // onChange={(e)=>{setFullName(e.target.value)}}
@@ -44,8 +49,8 @@ function Pay (){
             </div>
             <div className="my-3" >
                 <Button 
-                variant={!addressFormFilled &&  "dark"}
-                 disabled={!addressFormFilled} type="submit" className=" btn border-0  bg-darkblue b  py-2 bt w-100">
+                variant={!payNow &&  "dark"}
+                 disabled={!payNow} type="submit" className=" btn border-0  bg-darkblue b  py-2 bt w-100">
                     <IoLogoPaypal  fontSize='22px'/>    Login with Paypal
                 </Button>
             </div>
@@ -56,9 +61,10 @@ function Pay (){
             </div>
             <div className="my-3" >
                 <Button 
-                variant={addressFormFilled &&  "dark"}
-                disabled={addressFormFilled}
-                type="submit" className=" btn border-0 bg-k bg-darkblue b  py-2 bt w-100">
+                variant={payNow &&  "dark"}
+                disabled={payNow}
+                onClick={chashOnDeliveryHandel}
+                 className=" btn border-0 bg-k bg-darkblue b  py-2 bt w-100">
                        Cash on delivery
                 </Button>
             </div>

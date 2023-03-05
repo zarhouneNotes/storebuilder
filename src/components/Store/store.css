@@ -114,7 +114,9 @@
       margin: 1px;
       
     }
-    
+    .thanks{
+      width: 100%;
+    }
     .product-card:hover  {
       transition: 0.2s;
       transform: scale(1);

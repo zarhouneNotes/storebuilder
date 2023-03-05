@@ -16,6 +16,8 @@ import Category from '../Dashboard/Category'
 function VEProduct() {
     const params = useParams()
     const currentStore = useAuth()
+    
+    const [mainTag , setMainTag] = useState('')
     const [images , setImages] = useState( [])
     const [filesToUpload , setFilesToUpload] = useState([])
     const [selectValue, setSelectValue] = useState('')
@@ -23,6 +25,7 @@ function VEProduct() {
     const [variants, setVariants] = useState([]) ;
     const [colors, setColors] = useState([]) ;
     const  [title , setTitle] = useState('') ;
+    // const  [ , setTitle] = useState('') ;
     const  [desc , setDesc] = useState('') ;
     const  [price , setPrice] = useState(0) ;
     const [cats , setCats] = useState([])
@@ -49,6 +52,7 @@ function VEProduct() {
                 setVariants(p?.variants)
                 setCats(p?.categories)
                 setLoad(false)
+                setMainTag(p?.main_tag)
                 
 
             })
@@ -70,6 +74,7 @@ function VEProduct() {
                 variants : variants , 
                 instock : true ,
                 categories : cats ,      
+                main_tag : mainTag
             })
             .then(()=>{
                if (filesToArr.length !==0) {
@@ -146,7 +151,7 @@ function VEProduct() {
   const disabled = params?.edit == 'true' ? false : true
   return (
     <>
-    <div className='jus-center  position-relative   add-product  '>
+    <div className='jus-center  position-relative bg-ifo  add-product  '>
         <Form className="add-product-form-container bg-no " onSubmit={uploadPics}>
             <div className='bg-ino horiz-centerd'> 
                         <h3>{params.edit == 'true' ?'Edit' : 'View' } product</h3>
@@ -220,6 +225,31 @@ function VEProduct() {
                     disabled={disabled}
                     onChange={(e)=>{setDesc(e.target.value)}}
                     value={desc}  type=''placeholder='describe your product in few words' className='input w-5'/>
+
+
+                  <Form.Label className='mt- mt-2 darkblue'>Main category </Form.Label>
+                    <div className="">
+                        <Form 
+                        
+                        
+                        onChange={(e)=>{
+                                setMainTag(e.target.value)
+                        }}>
+                                {options?.map((op)=>{
+                                            return (<div>
+                                                        <input checked={mainTag == op}  type="radio" id={op} name="options" value={op}/>
+                                                        <label for={op}>{op}</label>
+                                                    </div>)
+                                        })}
+                        
+                        </Form>
+                        
+                
+                    
+                    </div>
+
+
+
                  <Form.Label className='mt- mt-2 darkblue'>Category </Form.Label>
                 <div className="d-flex">
                 <Form.Select 
