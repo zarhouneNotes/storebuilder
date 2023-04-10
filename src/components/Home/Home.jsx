@@ -8,6 +8,8 @@ import Hero from './Hero'
 import PreFooter from './PreFooter'
 import ThirdSec from './ThirdSec'
 import WhyUs from './WhyUs'
+import Fourd from './Fourd'
+import Fivth from './Fivth'
 
 
 function Home() {
@@ -17,6 +19,8 @@ function Home() {
         <Hero />
         <WhyUs />
         <ThirdSec />
+        <Fourd />
+        <Fivth />
         <PreFooter />
         <Footer />
     </div>

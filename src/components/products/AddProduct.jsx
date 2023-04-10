@@ -142,8 +142,8 @@ function AddProduct() {
 
   return (
     <>
-    <div className='jus-center  position-relative   add-product  '>
-        <Form className="add-product-form-container bg-no " onSubmit={uploadPics}>
+    <div className='jus-center  position-relative bg-sccess add-product  '>
+        <Form className="add-product-form-container bg-ifo " onSubmit={uploadPics}>
             <div className='bg-ino horiz-centerd'> 
                         <h3>Add product</h3>
                         <Button 

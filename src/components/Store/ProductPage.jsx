@@ -83,7 +83,7 @@ export default function ProductPage ({setBadge}){
                {!load && relatedProducts?.map((relproduct)=>{
                 return( relproduct.product_id !== product.product_id &&
                         <div   key={relproduct.product_id} className="col-6 col-lg-3 ">
-                            <StoreProduct product={relproduct} />
+                            <StoreProduct product={relproduct} rel={true} />
                         </div>
                         )
                })}

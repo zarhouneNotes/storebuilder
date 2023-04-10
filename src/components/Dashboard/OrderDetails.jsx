@@ -3,8 +3,10 @@ import {BsFillTelephoneFill, BsPersonCircle , BsFillInfoCircleFill} from 'react-
 import {ImLocation} from 'react-icons/im'
 import {FaMoneyCheck} from 'react-icons/fa'
 import OrderBtns from './OrderBtns'
+import { useMediaQuery } from 'usehooks-ts'
 
-function OrderDetails({order}) {
+function OrderDetails({order }) {
+    const isMobile = useMediaQuery("(max-width : 460px)")
     const orderDate = new Date(order?.time.seconds * 1000 + order?.time.nanoseconds/1000000).toLocaleString()
   return (
     <div className="col-12 col-lg-4 my-1  bg-ligt borde">
@@ -13,7 +15,7 @@ function OrderDetails({order}) {
             No order is selected!
         </div>
          : 
-        <div className="bg-light bg-dnger mx-1 p-3 border border-dark">
+        <div className={`bg-light  mx-1 ${isMobile ? 'p-2' : 'p-3 border border-dark '}`}>
             {/* <div className="text-secondary  my-2 text-enter">
                 {order?.order_id}
             </div> */}
@@ -48,10 +50,11 @@ function OrderDetails({order}) {
             </div>
            {order?.cart?.map((cartItem)=>{
                 return (
-                    <div className="my-1 border  mb-3 fs-petit  bg-white d-flex justify-content-between vertcally-centerd ">
+                    <div key={cartItem?.product?.product_id}  className="my-1 border  mb-3 fs-petit  bg-white d-flex justify-content-between vertcally-centerd ">
                         <div className='d-flex gap-1 '>
                             <img height="60px" style={{aspectRatio :'1/1'}}
-                             src={cartItem?.product?.images[0]} alt="" srcset=""
+                            
+                             src={cartItem?.product?.images[0]} alt="" srcSet=""
                               />
                             <div className='bg-inf=o d-flex flex-column gap- justify-content-around  '>
                                 <div>{cartItem?.product?.title}</div>
@@ -59,7 +62,7 @@ function OrderDetails({order}) {
                                 {cartItem?.choices?.color && <div>{cartItem?.choices?.color}</div>}
                             </div>
                         </div>
-                        <div>x3</div>
+                        <div>x{cartItem?.quantity}</div>
                         <div className='mx-1'>{cartItem?.product?.price*cartItem?.quantity}$</div>
                     </div>
                 )

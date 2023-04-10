@@ -32,10 +32,16 @@ function StoreNav({store , load , badge}) {
         </div>
             {store?.categories?.map((cat)=>{
                 return (
-                        <div className='mx-2 ' >
+                  <>
+                   <div className='mx-2 ' onClick={()=>{setShowMenu(false)}} >
                           <Link className='link text-secondary' to={`/storeId=${params?.id}/cat=${cat}`}  >{cat}</Link>
-                        </div>)
+                    </div>
+                  </>
+                       )
             })}
+            <div className='mx-2 ' onClick={()=>{setShowMenu(false)}} >
+                          <Link className='link text-secondary' to={`/storeId=${params?.id}/contact`}  >Contact</Link>
+            </div>
         </div>
         <div className='vertcally-centerd gap-2 ' >
 

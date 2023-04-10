@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 function StoreProduct({product}) {
   const params = useParams()
   return (
-    <Link to={`/storeId=${params?.id}/productId=${product?.product_id}`} className='link' >
+    <Link to={`/storeId=${product?.store_id}/productId=${product?.product_id}`} className='link' >
       <div className="m-2 pr  product-card ">
             <img className=' bg-light' src={product?.images[0]} width='100%' alt="" srcset="" style={{aspectRatio : '1/1' , objectFit:'contain'}} />
             <div className=" horiz-centerd p-2 bg-ino w-100 product-title ">

@@ -1,6 +1,6 @@
-import { deleteDoc, doc } from 'firebase/firestore'
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore'
 import React, { useState } from 'react'
-import { Button, ButtonGroup, Dropdown, DropdownButton, Modal } from 'react-bootstrap'
+import { Button, ButtonGroup, Dropdown, DropdownButton, Form, Modal } from 'react-bootstrap'
 import {AiFillEye} from 'react-icons/ai'
 import {BiEditAlt} from 'react-icons/bi'
 import {BsTrashFill} from 'react-icons/bs'
@@ -38,9 +38,34 @@ function Product({product , fetch}) {
           {product?.price}$
         </small>
       </div>
-      <div>
+  {!isMobile &&     <div>
+        {/* <small>
+          {product?.instock ? 'Available' : 'Out Of Stock'}
+        </small> */}
+             <Form.Select 
+                                size='sm'
+                                className='input'
+                                // value='hhhh'
+                                // defaultValue={product?.instock ? 'available' : 'Out Of Stock'}
+                                onChange={(e)=>{
+                                    updateDoc(doc(db , 'products' , product?.product_id) , {instock : e.target?.value})
+                                }}
+                            
+                            >
+                              {/* <option>{product?.instock ? 'Available' : 'Out Of Stock'}</option> */}
+                              
+                                <option selected={product?.instock == 'av' }  value='av'  >Available</option>
+                                <option value='oof' selected={product?.instock == 'oof' } >Out of Stock</option>
+                              
+
+                                
+                                
+                            
+                </Form.Select>
+      </div>}
+     <div>
         <small>
-          in Stock
+          {product?.main_tag}
         </small>
       </div>
       {isMobile &&  <DropdownButton

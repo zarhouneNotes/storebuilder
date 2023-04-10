@@ -10,7 +10,7 @@ function WhyUs() {
       <h1>Why Us ?</h1>
     </div>
 
-      <div className='horiz-centerd mt-5 cards  around'>
+      <div className='horiz-centerd mt-5 cards  around '>
           <div className='column vertcally-centerd text-center' >
             <img src={east} alt="" width='160px' />
             <div className=' fs-4 darkblue my-1 fw600'>Easy to use</div>

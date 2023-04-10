@@ -6,21 +6,22 @@
 }
 
 .products-container{
-    margin-top: 2cm;
-    width: 70%;
+    margin-top: 1cm;
+    width: 90%;
 }
 .add-product-form-container{
-  margin-top: 0.5cm;
+
   width: 70%;
 }
 .products-list {
-    height: 70vh;
+  margin-top: 1cm;
+    height: 85vh;
     overflow: hidden;
     overflow-y: scroll;
    }
 
 .add-product{
-  max-height: 98vh;
+    /* height: 9!8vh; */
     overflow-y: scroll;
 }
 
@@ -85,24 +86,49 @@
       height: 1.2em; 
       white-space: nowrap;
     }
+    .products-list {
+      margin-top: 0cm;
+        height: 100vh;
+        
+      padding-bottom: 2.5cm;
+       
+       }
     .add-product-form-container{
-      margin-top: 2cm;
+      /* margin-top: 2cm; */
       width: 95%;
-      max-height: 80vh;
+      max-height: 100vh;
       padding-bottom: 1.5cm;
+      padding-top: 0.5cm;
+      /* background-color: aqua; */
       overflow-y: scroll;
     }
     .products , .add-product{
         width: 100vw ;
     }
+    .add-product{
+      
+      height: 100vh;
+       margin: 0pc;
+
+    }
+    .products {
+      margin-top: 0cm;
+      padding-top: 0px;
+      
+    }
     .filters{
-        margin: 10px 10px;
+        margin: 10px 5px;
     }
    .products-container{
+
+    align-self: self-start;
+    padding-top :0.3cm; 
+    height: 100vh;
+    margin-top: 0px;
     width: 100%;
    }
    .products-list{
-    margin: 0px 10px;
+    margin-top: 0cm;
    }
   
    .input {

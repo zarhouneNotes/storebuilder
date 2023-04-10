@@ -11,12 +11,17 @@ import VEProduct from '../products/VEProduct'
 import QuickView from './QuickView'
 import { doc, onSnapshot } from 'firebase/firestore'
 import Orders from './Orders'
+import Mails from '../Store/Mails'
+import { MdMenu, MdOutlineClose } from 'react-icons/md'
+import Reports from './Reports'
+
 
 function Dashboard() {
     const currentUser =useAuth()
     const navigate = useNavigate()
     
     const [storeName , setStoreName] = useState('')
+    const [orderBadge , setOrderBadge] = useState(0)
     useEffect(()=>{
       let fetch = true
       if(fetch && currentUser){
@@ -39,15 +44,23 @@ function Dashboard() {
 
   return (
     <div className='dashboard'>
-        <Sidebar storeName={storeName} />
+       
+        <Sidebar storeName={storeName}  orderBadge={orderBadge}  />
+       
+
         <Routes>
-          <Route path='/orders' element={ <Orders />  } />
+          <Route path='/orders' element={ <Orders  setOrderBadge={setOrderBadge}/>  } />
+          <Route path='/support' element={ <Mails />  } />
           <Route path='/products' element={<Products />} />
           <Route path='/settings' element={<Settings  />} />
           <Route  path='/add-product' element={<AddProduct  />} />
           <Route  path='/edit-product=:id&edit=:edit' element={<VEProduct />} />
-          <Route path='/storeId=:id&:dev' element={<QuickView />} />
+          <Route path='/' element={<Reports />} />
         </Routes>
+
+        
+
+        
     </div>
     
     

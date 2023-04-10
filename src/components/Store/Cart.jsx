@@ -10,14 +10,18 @@ function Cart({setBadge}) {
 
     const changeCartItem = (obj)=>{
         const arr = []
+    // console.log(addedProducts , obj)
        addedProducts?.map((product)=>{
-        if (product?.order_id == obj.order_id) {
+        if (product?.item == obj.item_id) {
             arr.push(obj)
         }else{
             arr.push(product)
         }
        
        })
+    // let newList = addedProducts.filter((product)=>{
+    // //     return product !=
+    // })
        setAddedProducts(arr)
        localStorage.setItem('cart' , JSON.stringify(arr))
     }

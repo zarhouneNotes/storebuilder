@@ -107,6 +107,19 @@
 .line{
   height: 1px;
 }
+.mail{
+  cursor: pointer;
+ 
+}
+/* .mail-content {
+  scale: 0;
+}
+.showmailcontent{
+  transform: scale(1);
+  transition: 0.5s;
+} */
+
+
   @media (max-width: 460px) { 
     .adress-form{
       width:100vw ;

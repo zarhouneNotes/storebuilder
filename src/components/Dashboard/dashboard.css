@@ -17,7 +17,7 @@
     transform: translateX(5px);
     transition: 0.25s;
 }
-.settings-container{
+.settings-container, .reports{
     width: 80vw;
 }
 .settings{
@@ -35,10 +35,7 @@
 .quickview{
     width: 78vw;
 }
-.quickview-mobile{
-    width: 460px ;
-    margin: 0pc auto;
-}
+
 .cats{
     width: 90vw;
     flex-wrap: wrap;
@@ -55,47 +52,133 @@ margin-top: 0.4cm;
 .fs-petit{
     font-size: 13px;
 }
+
+.big-btns{
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    
+}
+.big-btn{
+    color: white;
+    /* border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px; */
+    /* padding: 8px 50px; */
+    border-radius: 15px;
+}
+
+.reports{
+    height: 100vh;
+    overflow-y: hidden;
+}
 @media only screen and (max-device-width:   460px){
-    .settings-container{
+    .big-btns{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    .sidebar-toggler {
+        bottom: 30px;
+        right: 20px;
+    }
+    .mail{
+        background-color: aqua;
+        padding:0px 10px;
+    }
+    .settings-container , .reports{
         width: 100vw;
+        height: 100vh;
+      
+    }
+    .order-mobile{
+        width :100vw;
+        top: 0;
+        right: 0;
+        transform: translateX(100vw) ; 
+        transition: 0.2s;
+
+        
+    }
+    .show-order-mobile{
+        transform: translateX(0vw) ; 
+        transition: 0.2s;
+    }
+
+    .orders-container{
+        max-height: 100vh;
+        overflow-y: scroll;
+        padding-bottom: 2.4cm;
+       
+        
     }
     .orders{
+        overflow-x: hidden;
+        /* overflow-y: scroll; */
         padding: 0px;
-        margin-top: 1.5cm;
+        padding-top: 00.3cm;
+        /*  */
+        margin-top: 0cm;
+        /* max-height: 100vh; */
+        /* background-color: aquamarine; */
     }
     .settings{
-        margin: 0cm 0px;
-        margin-top: 1.5cm;
-        padding:10px;
-        padding-bottom: 2cm;
-        max-height: 85vh;
+        margin: 0cm ;
+        margin-top: 0cm;
+        padding-top: 0.30cm;
+        padding-bottom: 0.5cm; 
+        padding-inline: 10px;
+        max-height: 100vh;
         overflow-y: scroll;
     }
     .settings .input{
         width: 100%;
     }
     .dashboard{
-        flex-direction: column-reverse;
-        justify-content: space-between;
+        height: 100vh;
+        /* flex-direction: column-reverse;
+        justify-content: space-between; */
+        position: relative;
+        overflow-y: hidden;
 
     }
     .sidebar{
-        width: 100vw;
-        background-color: white;
+        z-index: 9;
+        margin-top: 0px;
+        height: 100vh;
+        position: absolute;
+        width: 60vw;
+        top: 0px;
+        left: 0px;
+        transition: 0.24s;
+        transform: translateX(-61vh);
+    }
+    .sidebar-toggler{
+       z-index: 88;
+    }
+    .show-menu{
+        transition: 0.24s;
+        transform: translateX(0vh);
+    }
+    .sidebar .link{
+        width: 100%;
+        margin: 0px;
+        
     }
     .mobile-dash{
-        background-color: #242D52;
-        height: fit-content;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed;
-        bottom: 00000px;
-        width: 100vw;
-        z-index: 99;
-        height: 1.5cm;
+        padding-top: 0%;
+        margin:0px;
+    
+       
+        
+        
+       
     }
+    /* .show-mobile-dash{
+        transition: 0.24s;
+        transform: translateY(0vh);
+    } */
     .sidebar-link{
+        
         padding: 0px 0px;
     }
     .sidebar-link:hover{
@@ -103,14 +186,15 @@ margin-top: 0.4cm;
         transition: 0.25s;
     }
     .py-3{
-        padding: 10px;
+        /* padding: 10px; */
     }
     .mobile-console{
-        z-index:9 ;
+        /* z-index:9 ;
         top: 0%;
         width: 100vw;
         padding: 10px ;
-        height: 1.5cm;
+        height: 1.5cm; */
+        /* display: none; */
     }
    
 }

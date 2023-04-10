@@ -132,8 +132,9 @@ export default function Settings( {setStoreName}) {
                
              </div>
              <div className='mb-2'>
-              <Form.Label>About your store</Form.Label>
-              <Form.Control 
+              <Form.Label>About your store</Form.Label> <br />
+              <textarea 
+              rows="4"
               required
               onChange={(e)=>{setAbout(e.target.value)}}
               value={about}

@@ -19,7 +19,6 @@ function StoreHome({store , mobileMode}) {
                     arr.push(doc.data())
                     
                 })
-                console.log(arr)
                 setProducts(arr)
             })
         // } 

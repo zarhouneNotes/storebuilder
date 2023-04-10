@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom'
 import { useMediaQuery } from 'usehooks-ts'
 import './products.css'
 
-function Filters() {
+function Filters({filterProducts}) {
   const isMobile = useMediaQuery("max-width('460px')")
   return (
     <div className='filters horiz-centerd '>
         <div className='d-flex w-100'>
             <Form.Control 
+            onChange={(e)=>{
+              filterProducts(e.target.value)
+            }}
                placeholder='search for product..'
                className='input' />
             <div className='vertcally-centerd px-3 bg-darkblue'>
