@@ -32,7 +32,10 @@ function Mails() {
        const unsubscribe =  getMails()
        return unsubscribe
     },[currentStore])
-  return (
+  return mailsList?.length == 0 ? 
+  <div className="text-secondary add-product text-center py-3">
+    your mails list is empty!
+  </div> : (
     <div className='add-product mails'>
             <div className=' col-lg-11  mx-2 mt-3 fs-4' >Mails</div>
             

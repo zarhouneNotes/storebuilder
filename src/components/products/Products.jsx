@@ -49,7 +49,12 @@ function Products() {
     }
   }
 
-  return (
+  return products?.length == 0 ? 
+  <div className="text-secondary add-product text-center py-3">
+    your products list is empty!
+  </div>
+:
+(
     <>
     <div className='  jus-center bg-inf vertcally-cente products '>
        <div className="products-container b py  ">

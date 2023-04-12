@@ -72,6 +72,10 @@ margin-top: 0.4cm;
     overflow-y: hidden;
 }
 @media only screen and (max-device-width:   460px){
+    .reports{
+        height: 100vh;
+        overflow-y: scroll;
+    }
     .big-btns{
         display: flex;
         flex-wrap: wrap;

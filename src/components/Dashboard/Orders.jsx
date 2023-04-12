@@ -73,7 +73,10 @@ function Orders ({setOrderBadge}){
 
 
 
-    return (
+    return ordersList?.length == 0 ? 
+    <div className="text-secondary add-product text-center py-3">
+      your products list is empty!
+    </div> :(
         <div className="add-product   orders bg-ino position-relative">
          {!isMobile &&   <h4>Orders</h4>}
             <div className="p-2 d-flex gap-1">

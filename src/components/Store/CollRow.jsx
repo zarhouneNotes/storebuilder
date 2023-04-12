@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import {BsArrowRight} from 'react-icons/bs'
 import StoreProduct from './StoreProduct'
 import {useMediaQuery } from 'usehooks-ts'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 function CollRow({name , sl3a , mobileMode}) {
@@ -27,7 +27,7 @@ function CollRow({name , sl3a , mobileMode}) {
             <div className="fs-3">{name}</div>
             <div>
                 
-                <BsArrowRight  fontSize="24px" />
+                <Link to={`/storeId=${sl3a[0]?.store_id}/cat=${name}`}><BsArrowRight  fontSize="24px" /></Link>
             </div>
        </div>}
 

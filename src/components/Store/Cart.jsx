@@ -45,7 +45,11 @@ function Cart({setBadge}) {
     return (
     <div className=''>
         <CartPageHeader />
-        <div className="cart-page-body bg-dangr col-lg-10 col-sm-12 py-2 around mx-auto">
+      {addedProducts?.length==0 ? 
+      <div className="text-secondary text-center py-3">
+        your cart is empty!
+      </div>
+       :  <div className="cart-page-body bg-dangr col-lg-10 col-sm-12 py-2 around mx-auto">
             
             <div className="col-12 col-lg-8 col-sm-12 py- bg-ino">
                 <hr />
@@ -54,7 +58,7 @@ function Cart({setBadge}) {
             <div className="col-12 col-lg-4 col-sm-12 bg-priary">
                 <Bills products={addedProducts}/>
             </div>
-        </div>
+        </div>}
     </div>
     )
 }

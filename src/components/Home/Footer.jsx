@@ -38,7 +38,7 @@ function Footer() {
           
         </div>
 
-        <div className="log_social_icons gap-5 bg-in flex-sm-row-reverse  ">
+        <div className="log_social_icons gap-5 bg-in   ">
           <div className="logo vertcally-centerd">
           <img className='my-auto' src="https://img.icons8.com/bubbles/50/000000/support.png"/>
           <h4>

@@ -28,6 +28,7 @@ function Reports() {
   const [monthProfit , setMonthProfit] = useState(0)
   const [yearProfit , setYearProfit] = useState(0)
   const [allTimeProfit , setAllTimeProfit] = useState(0)
+  const [shippedProfit , setShippedProfit] = useState(0)
 
   const thisDay = new Date().toDateString()
   const thisMonth =new Date().getMonth().toString()+'/'+new Date().getFullYear().toString()
@@ -137,10 +138,12 @@ function Reports() {
         var canceled = 0 ; 
         var read = 0 ; 
         var p = 0 ;
+        var s_p = 0
         arr?.map((order)=>{
           p = p + parseFloat(order?.total_charge)
           if (order?.status == 'shipped') {
             shipped = shipped + 1
+            s_p = s_p + parseFloat(order?.total_charge)
           }if (order?.status == 'canceled') {
             canceled = canceled +1 
           }
@@ -148,6 +151,7 @@ function Reports() {
             read = read +1 
           }
         })
+        setShippedProfit(s_p)
         setAllTimeProfit(p)
         setCanceledNum(canceled)
         setReadNum(read)
@@ -182,7 +186,7 @@ function Reports() {
             <BigButton  label='shipped' value={shippedNum} bg='#16cc77' />
             <BigButton  label='canceled' value={canceledNum} bg='#f54542'/>
             <BigButton  label='Read' value={readNum} bg='#008b8b'/>
-            <BigButton  label='profit' value='321.21$' bg='#44bcd8' profit={true} />
+            <BigButton  label='profit' value={shippedProfit+'$'} bg='#44bcd8' profit={true} />
         </div>   
         <hr />
        <div className=" vertcally-centerd around mt-2 c bg-scondary">
@@ -224,9 +228,9 @@ function Reports() {
             this week orders : {ThisWeek()} <br />
             all time  orders :  {ordersList?.length} */}
         </div>
-        <div className="chart col-8 mx-auto col-lg-5 bg-ifo" style={{scale:''}}>
+      {canceledNum + shippedNum + readNum > 0&&  <div className="chart col-8 mx-auto col-lg-5 bg-ifo" style={{scale:''}}>
             <MyPie data={data} />
-        </div>
+        </div>}
        
        </div>
     </div>
