@@ -5,12 +5,12 @@ import { createUserWithEmailAndPassword,getAuth, onAuthStateChanged, signInWithE
 import { useEffect, useState } from 'react';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAaDk5IOnFYdpYB3QsVt7UrQqWse54NL-g",
-    authDomain: "twop-call.firebaseapp.com",
-    projectId: "twop-call",
-    storageBucket: "twop-call.appspot.com",
-    messagingSenderId: "401261069821",
-    appId: "1:401261069821:web:08d112c9cae295a61a0594"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
   };
 
 const app = initializeApp(firebaseConfig)
